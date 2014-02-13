@@ -1,17 +1,17 @@
 /* CRIAÇÃO DO BANCO DE DADOS GESTAC */
 CREATE DATABASE `gestac` /*!40100 DEFAULT CHARACTER SET utf8 */;
 /* CRIAÇÃO DA TABELA TIPOVAGA */
-CREATE TABLE `tipovaga` (
+CREATE TABLE `gestac`.`tipovaga` (
   `idTipoVaga` int(11) NOT NULL,
   `nome` varchar(11) default NULL,
   PRIMARY KEY  (`idTipoVaga`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /* PREENCHIMENTO DA TABELA TIPOVAGA */
-INSERT INTO `gestac`.`tipovaga` (`idTipoVaga`,`nome`) VALUES (1,`DEFICIENTE`);
-INSERT INTO `gestac`.`tipovaga` (`idTipoVaga`,`nome`) VALUES (2,`EMPRESA`);
-INSERT INTO `gestac`.`tipovaga` (`idTipoVaga`,`nome`) VALUES (3,`FUNCIONÁRIO`);
+INSERT INTO `gestac`.`tipovaga` (`idTipoVaga`,`nome`) VALUES (1,'DEFICIENTE');
+INSERT INTO `gestac`.`tipovaga` (`idTipoVaga`,`nome`) VALUES (2,'EMPRESA');
+INSERT INTO `gestac`.`tipovaga` (`idTipoVaga`,`nome`) VALUES (3,'FUNCIONÁRIO');
 /*  CRIAÇÃO DA TABELA DE VAGAS  */
-CREATE TABLE `vagas` (
+CREATE TABLE `gestac`.`vagas` (
   `numero` int(11) NOT NULL auto_increment,
   `livre` tinyint(4) NOT NULL,
   `tipovaga` int(11) NOT NULL,
@@ -56,7 +56,7 @@ INSERT INTO `gestac`.`vagas` (`numero`,`livre`,`tipovaga`) VALUES (33,0,3);
 INSERT INTO `gestac`.`vagas` (`numero`,`livre`,`tipovaga`) VALUES (34,0,3);
 INSERT INTO `gestac`.`vagas` (`numero`,`livre`,`tipovaga`) VALUES (35,0,3);
 /* CRIAÇÃO DA TABELA TIPOUSUARIO */
-CREATE TABLE `tipousuario` (
+CREATE TABLE `gestac`.`tipousuario` (
   `idtipousuario` int(11) NOT NULL,
   `nome` varchar(15) NOT NULL,
   PRIMARY KEY  (`idtipousuario`)
@@ -66,7 +66,7 @@ INSERT INTO `gestac`.`tipousuario` (`idtipousuario`, `nome`) VALUES ('1', 'ADMIN
 INSERT INTO `gestac`.`tipousuario` (`idtipousuario`, `nome`) VALUES ('2', 'FUNCIONÁRIO');
 INSERT INTO `gestac`.`tipousuario` (`idtipousuario`, `nome`) VALUES ('3', 'GESTOR');
 /* CRIAÇÃO DA TABELA USUARIOS */
-CREATE TABLE `usuarios` (
+CREATE TABLE `gestac`.`usuarios` (
   `id` int(11) NOT NULL auto_increment,
   `login` varchar(10) NOT NULL,
   `senha` varchar(10) NOT NULL,
