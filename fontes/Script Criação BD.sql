@@ -1,3 +1,5 @@
+/* APAGA O SCHEMA */
+DROP DATABASE `gestac`;
 /* CRIAÇÃO DO BANCO DE DADOS GESTAC */
 CREATE DATABASE `gestac` /*!40100 DEFAULT CHARACTER SET utf8 */;
 /* CRIAÇÃO DA TABELA TIPOVAGA */
@@ -83,6 +85,34 @@ INSERT INTO `gestac`.`usuarios` (`login`,`senha`,`tipoUsuario`) VALUES ('funci1'
 INSERT INTO `gestac`.`usuarios` (`login`,`senha`,`tipoUsuario`) VALUES ('funci2', '123',2);
 INSERT INTO `gestac`.`usuarios` (`login`,`senha`,`tipoUsuario`) VALUES ('gestor1', '123',3);
 INSERT INTO `gestac`.`usuarios` (`login`,`senha`,`tipoUsuario`) VALUES ('gestor2', '123',3);
+/*CRIAÇÃO DA TABELA MARCAS */
+CREATE TABLE `gestac`.`marcas` (
+  `id` int(11) NOT NULL auto_increment,
+  `nome` varchar(20) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/* CRIAÇÃO DA TABELA MODELOS */
+CREATE TABLE `gestac`.`modelos` (
+  `id` int(11) NOT NULL auto_increment,
+  `nome` varchar(20) NOT NULL,
+  `marca` int(11) NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `marca_idx` (`marca`),
+  CONSTRAINT `marca` FOREIGN KEY (`marca`) REFERENCES `marcas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/* CRIAÇÃO DA TABELA VEÍCULOS */
+CREATE TABLE `gestac`.`veiculos` (
+  `id` int(11) NOT NULL auto_increment,
+  `placa` varchar(7) NOT NULL,
+  `cor` varchar(20) NOT NULL,
+  `tipo` varchar(1) NOT NULL,
+  `modelo` int(11) NOT NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `placa_UNIQUE` (`placa`),
+  KEY `modelo_idx` (`modelo`),
+  CONSTRAINT `modelo` FOREIGN KEY (`modelo`) REFERENCES `modelos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 
