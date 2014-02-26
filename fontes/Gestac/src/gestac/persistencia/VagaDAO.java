@@ -1,9 +1,11 @@
 package gestac.persistencia;
 
+import gestac.modelo.vaga.TipoVaga;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import gestac.modelo.vaga.TipoVaga;
 
 public class VagaDAO {
 
@@ -42,6 +44,37 @@ public class VagaDAO {
 			PreparedStatement stat = conexao.prepareStatement(sql);
 			stat.setInt(1, tipo.getTipo());
 			stat.setInt(2, qtde);
+			stat.execute();
+			stat.close();
+			conexao.close();
+		} catch (SQLException se) {
+			System.out.println("Não foi possível executar o comando " + sql
+					+ ". ERRO: " + se.getMessage());
+		}
+	}
+
+	public static void ocuparVaga(TipoVaga tipo) throws Exception {
+		
+		conexao = FabricaDeConexao.obterConexao();
+		String sql = "";
+		int numero = 0;
+		try {
+			// Obtém uma vaga livre do tipo desejado
+			sql = "SELECT MIN(NUMERO) FROM VAGAS WHERE TIPOVAGA = ? AND LIVRE = 0";
+			PreparedStatement stat = conexao.prepareStatement(sql);
+			stat.setInt(1, tipo.getTipo());
+			stat.execute();
+			ResultSet rs = stat.getResultSet();
+			if (rs.next()) {
+				numero = rs.getInt("numero");
+			} else {
+				throw new Exception("Não foi encontrada vaga disponível do tipo desejado.");
+			}
+		
+			// Ocupa a vaga do número localizado
+			sql = "INSERT INTO VAGAS (LIVRE) VALUES (1) WHERE NUMERO = ?";
+			stat = conexao.prepareStatement(sql);
+			stat.setInt(1, numero);
 			stat.execute();
 			stat.close();
 			conexao.close();
