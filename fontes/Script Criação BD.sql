@@ -91,6 +91,14 @@ CREATE TABLE `gestac`.`marcas` (
   `nome` varchar(20) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/* PREENCHIMENTO DA TABELA DE MARCAS */
+INSERT INTO `gestac`.`marcas`(`nome`) VALUES('Chevrolet');
+INSERT INTO `gestac`.`marcas`(`nome`) VALUES('Citroen');
+INSERT INTO `gestac`.`marcas`(`nome`) VALUES('Fiat');
+INSERT INTO `gestac`.`marcas`(`nome`) VALUES('Ford');
+INSERT INTO `gestac`.`marcas`(`nome`) VALUES('Kia');
+INSERT INTO `gestac`.`marcas`(`nome`) VALUES('Renault');
+INSERT INTO `gestac`.`marcas`(`nome`) VALUES('Volkswagen');
 /* CRIAÇÃO DA TABELA MODELOS */
 CREATE TABLE `gestac`.`modelos` (
   `id` int(11) NOT NULL auto_increment,
@@ -100,6 +108,26 @@ CREATE TABLE `gestac`.`modelos` (
   KEY `marca_idx` (`marca`),
   CONSTRAINT `marca` FOREIGN KEY (`marca`) REFERENCES `marcas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/* PREENCHIMENTO DA TABELA MODELOS */
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('Corsa', 1);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('Cobalt', 1);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('Prisma', 1);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('Cruze', 1);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('C3', 2);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('AirCross', 2);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('Palio', 3);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('Siena', 3);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('Punto', 3);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('Fiesta', 4);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('Ka', 4);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('Picanto', 5);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('Sportage', 5);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('Logan', 6);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('Sandero', 6);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('Duster', 6);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('Gol', 7);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('Fox', 7);
+INSERT INTO `gestac`.`modelos`(`nome`, `marca`) VALUES ('Up', 7);
 /* CRIAÇÃO DA TABELA VEÍCULOS */
 CREATE TABLE `gestac`.`veiculos` (
   `id` int(11) NOT NULL auto_increment,

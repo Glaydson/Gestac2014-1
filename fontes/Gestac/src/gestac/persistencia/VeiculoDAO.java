@@ -68,7 +68,8 @@ public class VeiculoDAO {
 				int idMarca = rs.getInt("marca");
 				modelo.setMarca(obterMarcapeloID(idMarca));
 			} else {
-				throw new Exception("Modelo não encontrado.");
+				throw new Exception(
+						"Modelo não encontrado para o id informado.");
 			}
 			stat.close();
 			conexao.close();
@@ -94,7 +95,34 @@ public class VeiculoDAO {
 				marca = new Marca();
 				marca.setNome(nome);
 			} else {
-				throw new Exception("Modelo não encontrado.");
+				throw new Exception("Marca não encontrada para o id informado.");
+			}
+			stat.close();
+			conexao.close();
+		} catch (SQLException se) {
+			System.out.println("Não foi possível executar o comando " + sql
+					+ ". ERRO: " + se.getMessage());
+		}
+		return marca;
+	}
+
+	public static Marca buscarMarcaPeloNomeModelo(String modelo)
+			throws Exception {
+		conexao = FabricaDeConexao.obterConexao();
+		String sql = "";
+		Marca marca = null;
+		try {
+			sql = "SELECT * FROM MODELOS WHERE NOME = ?";
+			PreparedStatement stat = conexao.prepareStatement(sql);
+			stat.setString(1, modelo);
+			stat.execute();
+			ResultSet rs = stat.getResultSet();
+			if (rs.next()) {
+				int idMarca = rs.getInt("marca");
+				marca = obterMarcapeloID(idMarca);
+			} else {
+				throw new Exception(
+						"Marca não encontrada para o modelo informado.");
 			}
 			stat.close();
 			conexao.close();

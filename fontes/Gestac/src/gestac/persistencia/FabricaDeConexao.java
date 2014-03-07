@@ -16,7 +16,7 @@ public class FabricaDeConexao {
 	public static Connection obterConexao() {
 		String stringDeConexao = "jdbc:mysql://localhost/gestac";
 		String usuario = "root";
-		String senha = "123456";
+		String senha = "";
 
 		Connection conexao = null;
 

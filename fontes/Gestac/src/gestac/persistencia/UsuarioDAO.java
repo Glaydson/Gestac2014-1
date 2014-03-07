@@ -25,6 +25,8 @@ public class UsuarioDAO {
 			ResultSet rs = stat.getResultSet();
 			if (rs.next()) {
 				int tipo = rs.getInt("tipousuario");
+				// Isto pode ser buscado via consulta à tabela Tipousuario, mas
+				// deixei assim para simplificar.
 				tipoUsuario = TipoUsuario.obterTipoPeloID(tipo);
 			} else {
 				throw new Exception("Login não encontrado.");
