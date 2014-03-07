@@ -17,7 +17,7 @@ public class InterfaceVeiculos {
 	}
 
 	public static void registrarVeiculo(Veiculo veiculo) throws Exception {
-		throw new Exception("Falta implementar o registro de veículo");
+		ControleVeiculos.registrarVeiculo(veiculo);
 
 	}
 

@@ -28,6 +28,12 @@ public class ControleVeiculos {
 			return vf;
 		}
 	}
+	
+	//NOVO-Georgia 16:00 - 07/03
+	public static void registrarVeiculo(Veiculo veiculo){
+		// DUVIDA - esse metodo de validação é pra saber se o carro esta registrado no banco de dados, ou se ele é pra verificar se o carro é registrado??
+		//E nesses casos, ele não deveria retornar um boolean, true ou false???
+	}
 
 	public static Marca buscarMarcaPeloNomeModelo(String modelo)
 			throws Exception {
