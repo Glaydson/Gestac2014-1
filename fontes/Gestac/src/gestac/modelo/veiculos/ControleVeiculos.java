@@ -17,7 +17,7 @@ public class ControleVeiculos {
 		TipoUsuario tipoUsuario = ControleUsuario.obterTipoUsuario(login);
 		if (tipoUsuario==TipoUsuario.GESTOR){
 			VeiculoEmpresa ve = new VeiculoEmpresa();
-			return ve; //não entendemos o que significa <<create>> CreateMessage(); vf:Veiculo Funcionario <<Entity>>
+			return ve; //não entendemos o que significa <<create>> CreateMessage(); vf:Veiculo Funcionario <<Entity>>>
 		}
 		else {
 			VeiculoFuncionario vf = new VeiculoFuncionario();
