@@ -1,5 +1,6 @@
 package gestac.modelo.veiculos;
 
+import gestac.modelo.funcionario.Funcionario;
 import gestac.modelo.usuario.ControleUsuario;
 import gestac.modelo.usuario.TipoUsuario;
 import gestac.modelo.vaga.ControleVagas;
@@ -40,4 +41,27 @@ public class ControleVeiculos {
 		return VeiculoDAO.buscarMarcaPeloNomeModelo(modelo);
 	}
 
+	public static void registrarVeiculos(Veiculo veiculo){
+		
+		
+		
+	}
+	
+	public static void adicionarMovimentacao(){
+		
+	}
+	
+	public static void adicionarVeiculo(Funcionario func,Veiculo VeiculoFuncionario){
+		
+	}
+	
+	public static void autenticarVeiculo(String placa){ //metodo retorna boolean temporariamente como void
+		
+	}
+	
+	public static void registrarSaida(){
+		
+	}
+	
+	
 }
