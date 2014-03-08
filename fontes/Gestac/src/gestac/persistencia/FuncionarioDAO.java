@@ -1,5 +1,6 @@
-package gestac.modelo.funcionario;
+package gestac.persistencia;
 
+import gestac.modelo.funcionario.Funcionario;
 import gestac.modelo.veiculos.VeiculoFuncionario;
 
 public class FuncionarioDAO {
