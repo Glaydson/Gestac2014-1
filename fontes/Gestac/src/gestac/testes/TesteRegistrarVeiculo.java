@@ -22,7 +22,7 @@ public class TesteRegistrarVeiculo {
 			v1.setModelo(modelo1);
 			v1.setPlaca("AAA-1234");
 			v1.setCor("Prata");
-			InterfaceVeiculos.registrarVeiculo(v1);
+			InterfaceVeiculos.registrarVeiculo(v1, "");
 			System.out.println("Veículo de empresa registrado com sucesso.");
 
 			// Testando inclusão de veículo de funcionário
@@ -36,16 +36,8 @@ public class TesteRegistrarVeiculo {
 			v2.setModelo(modelo2);
 			v2.setPlaca("BBB-9876");
 			v2.setCor("Azul");
-			// PROVISÓRIO - O funcionário deve ser buscado na tabela de
-			// funcionários a partir de seu login. Para isto, é preciso que a
-			// funcionalidade de registrar funcionários esteja pronta e alguns
-			// funcionários já cadastrados.
-			Funcionario func1 = new Funcionario();
-			func1.setMatricula(10);
-			func1.setNome("Roberto César");
-			func1.setDeficiente(false);
-			v2.setFuncionario(func1);
-			InterfaceVeiculos.registrarVeiculo(v2);
+			// Passando o login como parâmetro - login já deve existir na tabela de usuários
+			InterfaceVeiculos.registrarVeiculo(v2, "funci1");
 			System.out
 					.println("Veículo de funcionário registrado com sucesso.");
 		} catch (Exception e) {

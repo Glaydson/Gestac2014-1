@@ -16,8 +16,11 @@ public class InterfaceVeiculos {
 		return ControleVeiculos.obterVeiculoInclusao(login);
 	}
 
-	public static void registrarVeiculo(Veiculo veiculo) throws Exception {
-		throw new Exception("Falta implementar o registro de veículo");
+	// Adicionando parâmetro login enquanto não temos sistemática de login
+	// implantada
+	public static void registrarVeiculo(Veiculo veiculo, String login)
+			throws Exception {
+		ControleVeiculos.registrarVeiculo(veiculo, login);
 
 	}
 

@@ -10,4 +10,14 @@ public class ControleUsuario {
 		
 	}
 
+	/**
+	 * Obtêm o id de um usuário a partir de seu login
+	 * @param login
+	 * @return
+	 * @throws Exception 
+	 */
+	public static int obterIdUsuario(String login) throws Exception {
+		return UsuarioDAO.obterIdUsuario(login);
+	}
+
 }

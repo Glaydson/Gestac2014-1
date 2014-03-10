@@ -4,6 +4,7 @@ import gestac.modelo.funcionario.Funcionario;
 import gestac.modelo.veiculos.Marca;
 import gestac.modelo.veiculos.Modelo;
 import gestac.modelo.veiculos.Veiculo;
+import gestac.modelo.veiculos.VeiculoEmpresa;
 import gestac.modelo.veiculos.VeiculoFuncionario;
 
 import java.sql.Connection;
@@ -131,6 +132,26 @@ public class VeiculoDAO {
 					+ ". ERRO: " + se.getMessage());
 		}
 		return marca;
+	}
+
+	/**
+	 * Registra um veículo para um funcionário
+	 * 
+	 * @param veiculo
+	 * @param func
+	 */
+	public static void registrarVeiculoFuncionario(VeiculoFuncionario veiculo,
+			Funcionario func) {
+		// TODO criar o veículo na tabela de veículos
+		// TODO criar a associação entre o id do veículo e o id do funcionário
+		// na tabela funcionarioveiculos
+
+	}
+
+	public static void registrarVeiculoEmpresa(VeiculoEmpresa veiculo) {
+		// TODO criar o veículo na tabela de veículos, neste caso não há
+		// associação com a tabela de funcionários
+
 	}
 
 }
