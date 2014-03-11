@@ -5,6 +5,8 @@ import java.util.List;
 
 import gestac.modelo.funcionario.ControleFuncionario;
 import gestac.modelo.funcionario.Funcionario;
+import gestac.modelo.movimentacao.ControleMovimentacoes;
+import gestac.modelo.movimentacao.Movimentacao;
 import gestac.modelo.usuario.ControleUsuario;
 import gestac.modelo.usuario.TipoUsuario;
 import gestac.modelo.vaga.ControleVagas;
@@ -17,6 +19,8 @@ public class ControleVeiculos {
 	public static void registrarEntrada(String placa) throws Exception {
 		Veiculo v = VeiculoDAO.buscarVeiculoPelaPlaca(placa);
 		ControleVagas.ocuparVaga(v);
+		Movimentacao mov = ControleMovimentacoes.registrarEntrada(v);
+		v.adicionarMovimentacao(mov);
 
 	}
 
@@ -57,11 +61,14 @@ public class ControleVeiculos {
 			if (func.getVeiculos().size() < 2) {
 				// Adiciona o veículo
 				func.getVeiculos().add(veiculo);
-				// O passo anterior adiciona apenas em memória, é preciso adicionar no BD
-				VeiculoDAO.registrarVeiculoFuncionario((VeiculoFuncionario) veiculo, func);
-				
+				// O passo anterior adiciona apenas em memória, é preciso
+				// adicionar no BD
+				VeiculoDAO.registrarVeiculoFuncionario(
+						(VeiculoFuncionario) veiculo, func);
+
 			} else {
-				throw new Exception("Número máximo de veículos por funcionário excedido");
+				throw new Exception(
+						"Número máximo de veículos por funcionário excedido");
 			}
 		} else {
 			VeiculoDAO.registrarVeiculoEmpresa((VeiculoEmpresa) veiculo);

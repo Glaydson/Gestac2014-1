@@ -72,7 +72,7 @@ public class VagaDAO {
 			}
 		
 			// Ocupa a vaga do número localizado
-			sql = "INSERT INTO VAGAS (LIVRE) VALUES (1) WHERE NUMERO = ?";
+			sql = "UPDATE VAGAS SET LIVRE = 1 WHERE NUMERO = ?";
 			stat = conexao.prepareStatement(sql);
 			stat.setInt(1, numero);
 			stat.execute();
